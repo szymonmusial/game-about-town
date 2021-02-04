@@ -1,0 +1,59 @@
+:root {
+  --color-primary: #E6E5E0;
+  --color-second: #041F1C;
+  --color-third: #F8C101;
+  --color-third--darker: #DDB004;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+body{margin: 0px;font-family: 'Montserrat', sans-serif;/*cursor: url(https://cdn.custom-cursor.com/128/assets/arrows/32/Cat_Paw_Cursor.png) , default!important;*/}
+button{font-family: 'Playfair Display', serif;}
+section{background-image: url(../img/background.png);height: 100vh;margin: 0px;width: 100%;background-size: 100% 100%;}
+
+
+@media only screen and (max-width: 800px) {
+section{background-image: url(../img/background__medium.png);}
+}
+@media only screen and (max-width: 400px) {
+section{background-image: url(../img/background__small.png);}
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .4s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.fade--slow-enter-active, .fade--slow-leave-active {
+  transition: opacity .7s;
+}
+.fade--slow-enter, .fade--slow-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+/* COLORS */
+.color--primary{color:var(--color-primary);}
+.color--second{color:var(--color-second);}
+.color--third{color:var(--color-third);}
+.color--third--darker{color:var(--color-third--darker);}
+
+
+
+/* FONT SETTING */
+h1, h2, h3, h4, h5, h6{margin: 0px;}
+
+
+h2{font-weight: 800;margin: 0px;}
+
+.download__container{position: relative;z-index: 10000;padding-bottom: 0px;}
+.download__container:hover{cursor: url(https://cdn.custom-cursor.com/128/assets/arrows/32/Cat_Paw_Cursor.png) , default!important;}
+.download__container a:hover{cursor: url(https://cdn.custom-cursor.com/128/assets/arrows/32/Cat_Paw_Cursor.png) , default!important;}
+
+a{text-decoration: none;color: #000;font-weight: 700;}
+.text__icon{width: 25px;height: 25px;display: inline-block;}
+.text__icon svg{width: 100%;height: 100%;}
+ .br--mobile{display:none!important;}
