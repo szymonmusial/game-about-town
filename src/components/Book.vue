@@ -65,7 +65,7 @@
 import axios from 'axios'
 import Vue from 'vue'
 import md5 from 'md5'
-import jsondata from '../assets/json/response_new_new.json'
+import jsondata from '../assets/json/response.json'
 
 import {
   VueShowdown
