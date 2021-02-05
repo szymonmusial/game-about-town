@@ -85,7 +85,8 @@ export default {
       pages: [],
       pagesstatus: true,
       settings: {
-        baseurl: 'https://forbrand.civ.pl/',
+        baseurl: '{base_url}',
+        imgbaseurl: 'https://forbrand.civ.pl/',
         localdata: true
       }
     }
@@ -181,7 +182,7 @@ export default {
     },
     loaddatafrombase: function () {
       if (!this.settings.localdata) {
-        axios.get('http://192.168.56.1:1337/zagadkis?token=123456')
+        axios.get(this.settings.baseurl)
           .then(response => {
             this.riddlesraw = response.data
             this.riddlesprepare()
@@ -203,7 +204,7 @@ export default {
       for (var i = 0; i < (this.riddlesraw.length); i++) {
         id = i
         password = this.riddlesraw[i].password
-        hint = this.settings.baseurl + this.riddlesraw[i].hint.url
+        hint = this.settings.imgbaseurl + this.riddlesraw[i].hint.url
         numberpages = this.riddlesraw[i].pages.length
         data = this.riddlesmodel(id, password, hint, numberpages)
         this.riddles.push(data)
@@ -233,10 +234,10 @@ export default {
           type = page.__component
           riddlesid = nrriddle
           if (type === 'pages.pagephoto') {
-            content = this.settings.baseurl + page.photo[0].url
+            content = this.settings.imgbaseurl + page.photo[0].url
           }
           if (type === 'pages.pagetext') {
-            content = page.text.replace(/uploads/i, this.settings.baseurl + '/uploads')
+            content = page.text.replace(/uploads/i, this.settings.imgbaseurl + '/uploads')
           }
           data = this.pagesmodel(type, riddlesid, content)
           this.pages.push(data)
