@@ -2,12 +2,12 @@
 Podgląd na żywo [kodwieruszowa.pl](https://kodwieruszowa.pl/)
 
 ## Spis Treści
-* [Ogólne Informacje](#general-info)
-* [Podgląd Projektu](#Podgląd Projektu)
-* [Technologie](#Technologie)
-* [Lista Zadań](#Lista Zadań)
+* [Ogólne Informacje](#ogólne-informacje)
+* [Podgląd Projektu](#Podgląd-projektu)
+* [Technologie](#technologie)
+* [Lista Zadań](#lista-zadań)
 * [Status](#status)
-* [Kontakt](#Kontakt)
+* [Kontakt](#kontakt)
 
 ## Ogólne Informacje
 Gra została stworzona z myślą o ludziach którzy chcą lepiej poznać miasto Wieruszów. Celem rozgrywki jest pokonywanie następnych stron książki na których znajdują się łamigłówki kryptologiczne o różnym stopniu trudności. Dla graczy którzy nie radzą sobie z poziomem trudności zostały przygotowane różnorakie podpowiedzi. Podczas tworzenia tego projektu zależało mi przede wszystkim na pokazaniu kryptografii w ciekawym i zrozumiały dla odbiorcy sposób.
