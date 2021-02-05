@@ -72,7 +72,6 @@ export default {
   name: 'Book',
   data: function () {
     return {
-      localdata: true,
       desktop: false,
       windowsize: '',
       mobile: false,
@@ -86,9 +85,8 @@ export default {
       pages: [],
       pagesstatus: true,
       settings: {
-      // tutaj zmiena czy strapi czy local
-        baseurl: 'https://forbrand.civ.pl/'
-      //  baseurl: 'http://localhost:1337'
+        baseurl: 'https://forbrand.civ.pl/',
+        localdata: true
       }
     }
   },
@@ -182,7 +180,7 @@ export default {
       }
     },
     loaddatafrombase: function () {
-      if (!this.localdata) {
+      if (!this.settings.localdata) {
         axios.get('http://192.168.56.1:1337/zagadkis?token=123456')
           .then(response => {
             this.riddlesraw = response.data
