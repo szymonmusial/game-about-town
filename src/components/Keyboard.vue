@@ -97,9 +97,6 @@ export default {
         const key = e.key.toLowerCase()
         if (key !== ' ' && key !== 'enter') {
           //      this.onKeyPress(key)
-          //      let copyinput = this.input
-          //      copyinput = copyinput + key
-          //      this.onChange(copyinput)
         } else {
           this.onKeyPress('{enter}')
         }
@@ -128,7 +125,7 @@ export default {
     if (this.mobile) { this.catchkeyboard() }
 
     window.addEventListener('keydown', (e) => {
-      const key = event.key // const {key} = event; ES6+
+      const key = event.key
       if (key === 'Backspace') {
         this.input = this.input.slice(0, -1)
       }
@@ -153,8 +150,6 @@ export default {
 }
 
 .input__circle {
-  /* width: 90px; */
-  /* height: 90px; */
   border-radius: 50%;
   display: block;
   background-color: #fff;
@@ -177,7 +172,6 @@ export default {
   background: #CFD1CC;
   position: absolute;
   z-index: 0;
-  /*top: -130px;*/
   left: 20%;
   z-index: 0;
   border-top-left-radius: 130px;
@@ -285,35 +279,6 @@ export default {
   .mobile {
     display: block;
   }
-
-  /*
-  .input__circle {
-      height: 11vw;
-      width: 11vw;
-      border-radius: 50%;
-      display: block;
-      background-color: #fff;
-      margin: 0 4px;
-      box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.25);
-      display: flex;
-      align-items: center;
-      float: left;
-      justify-content: center;
-  }
-
-.input__container {
-    background-color: #F8C101;
-    background-image: url(/img/noise.6b073ea5.png);
-    display: inline-flex;
-    justify-content: center;
-    z-index: 1;
-    width: 100%;
-    position: relative;
-    text-align: center;
-    padding: 25px 0px;
-    margin-bottom: 3vw !important;
-}
-*/
 }
 
 @media only screen and (max-width: 500px) {

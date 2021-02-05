@@ -2,13 +2,10 @@
 <div class="book__container">
   <div class="couneter"><span>Poziom dostępu: </span>{{user.acceslevel}}<br><span>Obecna strona: </span>{{count}}<br><span>obecna zagadka: </span>{{user.currentriddle}}<br>
     <span v-on:click="unlockriddle(true)">Odlokuj zagadke</span><br><span v-on:click="delcoockie()">Usun stan gry </span><br>
-    <!-- <br><span v-on:click="nextpagemobile()">Nastepna mobile strona</span> -->
-    <!-- <br><span v-on:click="previouspagemobile()">Wczesniejsza strona mobile</span> -->
   </div>
   <audio src="../assets/sound/bookflip.mp3" id="audio-book">
     Your browser does not support the audio element.
   </audio>
-<!-- tutaj zmieniłem z 1200 na 820px */ -->
   <div class="book" v-if="pagesstatus && windowsize > 820">
     <div id="pages" class="pages">
       <div id="page__left" v-on:click="previouspage"></div>
@@ -27,7 +24,6 @@
       </div>
     </div>
   </div>
-  <!-- tutaj zmieniłem z 1200 na 820px */ -->
   <div class="book" v-if="pagesstatus && windowsize < 820">
     <div class="help"  v-on:click="emitpopup">
       <div class="button__container">
@@ -76,19 +72,14 @@ export default {
   name: 'Book',
   data: function () {
     return {
-      // tutaj zmiena czy strapi czy local
       localdata: true,
       desktop: false,
       windowsize: '',
       mobile: false,
       count: -1,
       user: {
-        // todo: zrobić by system zapamnientywał strone na której uzytkownik odswiezył strone
-        //    currentpage: 0,
         acceslevel: -1,
-        //  acceslevel: 3,
         currentriddle: 0
-        //  acceslevel: 1,
       },
       riddlesraw: {},
       riddles: [],
@@ -137,16 +128,6 @@ export default {
       if (this.checkaccess()) {
         this.clickSound()
         this.count = this.count + 1
-        /*
-        const pages = document.querySelectorAll('.page')
-        const cat = document.querySelector('.cat-paw')
-        cat.classList.add('cat-paw--show-mobile')
-        pages[this.count].classList.add('book--hide-mobile')
-        setTimeout(() => {
-          cat.classList.remove('cat-paw--show-mobile')
-          pages[this.count].style.top = '-200%'
-        }, 1750)
-          */
       }
     },
     previouspage: function (event) {
@@ -161,21 +142,6 @@ export default {
     },
     previouspagemobile: function (event) {
       this.clickSound()
-      /*
-      const cos = document.querySelectorAll('.book--hide-mobile')
-      const elnumber = document.querySelectorAll('.book--hide-mobile').length
-      const cat = document.querySelector('.cat-paw')
-      cat.classList.add('cat-paw--show-mobile')
-      cos[elnumber - 1].classList.add('book--showing-mobile')
-      setTimeout(() => {
-        cos[elnumber - 1].classList.remove('book--showing-mobile')
-        cos[elnumber - 1].classList.remove('book--hide-mobile')
-        cos[elnumber - 1].style.top = 'unset'
-      }, 1000)
-      setTimeout(() => {
-        cat.classList.remove('cat-paw--show-mobile')
-      }, 1750)
-      */
       this.count = this.count - 1
     },
     clickSound: function () {
@@ -185,9 +151,9 @@ export default {
       const currentpage = this.count
       let access = false
       if (currentpage < this.user.acceslevel) {
-        access = true // was +1
+        access = true
       } else if (this.user.acceslevel === 32 && currentpage < this.user.acceslevel + 2) {
-        this.user.acceslevel = this.user.acceslevel + 2 //  it wasnt
+        this.user.acceslevel = this.user.acceslevel + 2
         access = true
       }
       return access
@@ -199,7 +165,6 @@ export default {
         this.user.acceslevel = this.user.acceslevel + nextriddlenrpages
         this.user.currentriddle = this.user.currentriddle + 1
         this.savedatauser()
-        // sprawdzic to
         this.emitpassword()
       }
     },
@@ -246,7 +211,6 @@ export default {
         this.riddles.push(data)
       }
       this.pagessprepare()
-      // sprawdzic to
       this.emitpassword()
     },
     riddlesmodel: function (id, password, hint, numberpages) {
@@ -255,8 +219,6 @@ export default {
       riddleitem.password = password
       riddleitem.hint = hint
       riddleitem.numberpages = numberpages
-      // todo status open dla zagadek bez hasel
-      //  riddleitem.status = 'undone'
       return riddleitem
     },
     pagessprepare: function () {
@@ -324,7 +286,6 @@ export default {
     }
   },
   mounted () {
-    // zmieniłem kolejność tutaj bylo na odwrót
     this.loaddatauser()
     this.loaddatafrombase()
     this.myresize()
@@ -520,8 +481,6 @@ p {
   background: linear-gradient(to right, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, 0) 10%);
 }
 
-/*.couneter{display:none;}*/
-
 .couneter {
   position: absolute;
   background-color: #fff;
@@ -561,9 +520,7 @@ img {
 .book {
   transition: opacity 0.4s 0.2s;
   position: relative;
-  /*width: 60vw;*/
   width: 1152px;
-  /*height: 44vw;*/
   height: 850px;
   max-width: 100%;
   margin: auto;
@@ -598,13 +555,11 @@ p {
 }
 
 .book .pages {
-  /*width: 60vw;*/
   width: 100%;
   height: 100% !important;
   position: relative;
   transform-style: preserve-3d;
   border-radius: 4px;
-  /*box-shadow: 0 0 0 1px #e3dfd8;*/
 }
 
 .book .page {
@@ -613,7 +568,6 @@ p {
   margin: 0;
   position: absolute;
   top: 0;
-  /*width: 30vw;*/
   width: 50%;
   height: 100% !important;
   transform-origin: 0 0;
@@ -645,19 +599,8 @@ p {
   right: 0;
   border-radius: 0 4px 4px 0;
   background-image: linear-gradient(to right, rgba(0, 0, 0, .30) 0%, rgba(0, 0, 0, 0) 10%), url(../assets/img/papper7.png);
-  /*background-image: linear-gradient(to right, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, 0) 10%);*/
 }
 
-/*
-  .book .page:nth-child(odd):hover {
-  transform: rotateY(-15deg);
-}
-*/
-/*
-.book .page:nth-child(odd):hover:before {
-  background: rgba(0, 0, 0, 0.03);
-}
-*/
 .book .page:nth-child(odd):before {
   background: rgba(0, 0, 0, 0);
 }
@@ -670,7 +613,6 @@ p {
   border-radius: 4px 0 0 4px;
   border-color: black;
   background-image: linear-gradient(to left, rgba(0, 0, 0, .30) 0%, rgba(0, 0, 0, 0) 10%), url(../assets/img/papper7__miror.png);
-  /*background-image: linear-gradient(to left, rgba(0, 0, 0, .15) 0%, rgba(0, 0, 0, 0) 10%);*/
 }
 
 .book .page:nth-child(even):before {
@@ -697,15 +639,6 @@ p {
   visibility: visible;
 }
 
-/*
-.book .page.flipped:nth-child(even):hover {
-  transform: rotateY(15deg);
-}
-
-.book .page.flipped:nth-child(even):hover:before {
-  background: rgba(0, 0, 0, 0.03);
-}
-*/
 .book .page.flipped:nth-child(even):before {
   background: rgba(0, 0, 0, 0);
 }
@@ -740,7 +673,6 @@ body {
   background-position: right top;
 }
 
-/* tutaj zmieniłem z 1200 na 820px */
 @media only screen and (max-width: 820px) {
   .book {
     width: 576px;

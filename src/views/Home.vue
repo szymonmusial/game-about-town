@@ -18,7 +18,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
 import HomeBlock from '@/components/HomeBlock.vue'
 import Loading from '@/components/Loading.vue'
 
@@ -35,7 +35,7 @@ export default {
     }
   },
   methods: {
-    isloaded: function () {
+    IsLoaded: function () {
       setTimeout(() => {
         this.ShowPage = true
         this.ShowModal = false
@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted () {
-    this.isloaded()
+    this.IsLoaded()
   }
 }
 </script>

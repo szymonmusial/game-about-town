@@ -1,8 +1,5 @@
 <template>
 <section id="Loading">
-  <!--<img src="../assets/img/loading.gif" alt="this slowpoke moves" width=250 id="desktop"/>
-  <img src="../assets/img/loading__mobile2.gif" alt="this slowpoke moves" width=250 id="mobile"/>
-  -->
   <video autoplay muted id="desktop">
   <source src="../assets/img/loading.mp4" type="video/mp4">
   <source src="../assets/img/loading.ogg" type="video/ogg">

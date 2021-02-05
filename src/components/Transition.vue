@@ -1,9 +1,5 @@
 <template>
 <section id="Transition">
-  <!--
-  <img src="../assets/img/transition.gif" alt="this slowpoke moves" width=250 id="desktop"/>
-  <img src="../assets/img/transition.gif" alt="this slowpoke moves" width=250 id="mobile"/>
-  -->
   <video autoplay muted loop id="desktop">
   <source src="../assets/img/transition.mp4" type="video/mp4">
   <source src="../assets/img/transition.ogg" type="video/ogg">

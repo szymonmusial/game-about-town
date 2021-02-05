@@ -47,17 +47,6 @@ export default {
     this.myresize()
   },
   methods: {
-    // do usunieca na produkcji
-    /*
-    showpanel () {
-      console.log('work')
-      if (document.querySelector('.couneter').style.display === '' || document.querySelector('.couneter').style.display === 'none') {
-        document.querySelector('.couneter').style.display = 'block'
-      } else {
-        document.querySelector('.couneter').style.display = 'none'
-      }
-    },
-    */
     catchkeyboard () {
       document.onkeypress = (e) => {
         if (e.key === '`') {
@@ -161,10 +150,6 @@ export default {
       } else {
         this.clickEnterSound()
       }
-
-      /**
-       * If you want to handle the shift and caps lock buttons
-       */
       if (button === '{shift}' || button === '{lock}') this.handleShift()
       if (button === '{pomoc}') {
 
@@ -200,7 +185,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 
 .hg-theme-default{font-family: 'Montserrat', sans-serif;font-weight:bold;}
@@ -233,9 +217,7 @@ input {
 }
 
 .keyboard__container {
-  /*width: 80vw;*/
   width: 100%;
-  /*min-width: 1500px;*/
   margin: 0 auto;
 }
 
@@ -243,7 +225,6 @@ input {
   max-width: 100%;
 }
 
-/* buttons */
 .hg-theme-default .hg-button {
   height: 90px;
   width: 90px;
@@ -257,7 +238,6 @@ input {
   font-size: 20px;
 }
 
-/* row */
 .hg-theme-default .hg-row:not(:last-child) {
   margin-left: auto;
   margin-right: auto;
@@ -274,7 +254,6 @@ input {
 @media only screen and (max-width: 1502px) {
   .keyboard__container {
     width: 90%;
-    /*width:100%;*/
   }
 
   .hg-theme-default .hg-row:nth-child(5) {
@@ -283,13 +262,6 @@ input {
     margin: auto;
     display: flex;
   }
-/* tutaj zakomentowałem styl */
-/*
-  .hg-button-pomoc {
-    border-radius: 25px !important;
-    height: 80px !important;
-  }
-*/
 }
 
 .hg-button-enter {
@@ -309,7 +281,6 @@ input {
   margin-top: 2vw;
 }
 
-/* tutaj dodałem cale media */
 @media only screen and (max-width: 1000px) {
 .hg-button-pomoc {
   border-radius: 25px !important;

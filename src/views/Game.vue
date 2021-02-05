@@ -7,13 +7,13 @@
         <img :src="Hint">
       </div>
     </div>
-  </transition> <!-- // dodałem tutaj zoom funkcje v-bind -->
+  </transition>
   <section id="game__book" v-bind:style="firefox ? Zoomfirefoxbook : Zoomstyle">
     <book @getpassword="sendpassword" ref="book" :onLoad="isloaded()" @openpopup="openpopup" v-bind:style= "firefox ? Zoomfirefox :{}"></book>
   </section>
   <transition name="fade">
     <Transitionn v-if="ShowModal"></Transitionn>
-  </transition>                               <!-- // dodałem tutaj zoom funkcje v-bind -->
+  </transition>
   <section id="game__keyboard" v-bind:class="{ active: ShowPage }" v-bind:style="firefox ? Zoomfirefoxcontainer : Zoomstyle">
     <keyboard :password="Password" :passwordlen="Passwordlen" @passwordcorect="passwordcorect" @openpopup="openpopup" v-bind:style= "firefox ? Zoomfirefox :{}"></keyboard>
   </section>
@@ -21,7 +21,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Transitionn from '@/components/Transition.vue'
 import Book from '@/components/Book.vue'
 import Keyboard from '@/components/Keyboard.vue'
@@ -79,7 +78,6 @@ export default {
     closepopup: function () {
       this.popup = false
     },
-    // dodałem tutaj zoom funkcje
     changezoom: function () {
       if (window.innerWidth < 1600 && window.innerWidth > 1250) {
         this.Zoomstyle.zoom = '75%'
@@ -109,7 +107,6 @@ export default {
     }
   },
   mounted () {
-    // dodałem tutaj zoom funkcje
     this.changezoom()
     if (this.$cookies.get('user') === null) {
       this.openpopup()
